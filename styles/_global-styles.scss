@@ -1,0 +1,86 @@
+@use "./global_placeholders" as *;
+
+html {
+    @extend %reset;
+}
+
+body {
+    @extend %reset;
+    font-family: "OpenSans-Regular", sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+* {
+    @extend %reset;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "NotoSerif-Regular";
+    src: local("NotoSerifRegular"),
+        url("../media/fonts/NotoSerif-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSerif-Medium";
+    src: local("NotoSerifMedium"),
+        url("../media/fonts/NotoSerif-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSerif-SemiBold";
+    src: local("NotoSerifSemiBold"),
+        url("../media/fonts/NotoSerif-SemiBold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSerif-Bold";
+    src: local("NotoSerifBold"),
+        url("../media/fonts/NotoSerif-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato-Light";
+    src: local("LatoLight"),
+        url("../media/fonts/Lato-Light.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato-Regular";
+    src: local("LatoRegular"),
+        url("../media/fonts/Lato-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato-Bold";
+    src: local("LatoBold"),
+        url("../media/fonts/Lato-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato-Black";
+    src: local("LatoBlack"),
+        url("../media/fonts/Lato-Black.ttf") format("truetype");
+    font-display: swap;
+}

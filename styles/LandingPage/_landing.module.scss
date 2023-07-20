@@ -1,0 +1,54 @@
+@use "../variables/colors" as *;
+
+%line {
+    content: "";
+    width: 150px;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    background-color: $SecondaryColor;
+}
+
+.landing {
+    height: 100vh;
+    position: relative;
+    background-image: url("../../media/images/landing.jpg");
+    background-size: cover;
+
+    .text {
+        color: #fff;
+        position: absolute;
+        z-index: 12;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        white-space: nowrap;
+
+        h1 {
+            margin-bottom: 30px;
+            font-family: "NotoSerif-Bold", sans-serif;
+            font-size: 66px;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        p {
+            display: inline-block;
+            position: relative;
+            font-family: "Lato-Regular", sans-serif;
+            font-size: 30px;
+            text-transform: capitalize;
+
+            &::before {
+                @extend %line;
+                left: -100%;
+            }
+
+            &::after {
+                @extend %line;
+                right: -100%;
+            }
+        }
+    }
+}
