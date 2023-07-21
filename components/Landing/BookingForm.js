@@ -4,6 +4,7 @@ import StyledContainer from "../UI/StyledContainer";
 import MainButton from "../UI/MainButton";
 import DateTimePicker from "../UI/DateTimePicker";
 import SelectInput from "../UI/SelectInput";
+import dayjs from "dayjs";
 
 const data = [
   { id: "1", name: "cairo" },
@@ -29,7 +30,8 @@ const BookingForm = (props) => {
   };
 
   const submitHandler = async (values, { resetForm }) => {
-    //alert(JSON.stringify(values, null, 2));
+    console.log(values.occasionDate.format("MM/DD/YYYY"));
+    alert(JSON.stringify(values, null, 2));
     //resetForm();
   };
 
@@ -39,49 +41,52 @@ const BookingForm = (props) => {
         <div className={classes.formContainer}>
           <Formik
             initialValues={{
-              occasionDate: "",
+              occasionDate: dayjs(),
               governorates: "",
               city: "",
             }}
             //validate={validateHandler}
             onSubmit={submitHandler}
           >
-            <Form className={classes.form}>
-              <div className={classes.input}>
-                <DateTimePicker
-                  className={classes.field}
-                  id="occasionDate"
-                  name="occasionDate"
-                  labeltext="occasion date:"
-                  type="date"
-                />
-              </div>
-              <div className={classes.input}>
-                <SelectInput
-                  className={classes.field}
-                  id="governorates"
-                  name="governorates"
-                  labeltext="governorates:"
-                  data={data}
-                  type=""
-                />
-              </div>
-              <div className={classes.input}>
-                <SelectInput
-                  className={classes.field}
-                  id="city"
-                  name="city"
-                  labeltext="city:"
-                  data={data}
-                  type=""
-                />
-              </div>
-              <div className={classes.input}>
-                <MainButton type="submit" className={classes.submit}>
-                  search
-                </MainButton>
-              </div>
-            </Form>
+            {({ values }) => (
+              <Form className={classes.form}>
+                <div className={classes.input}>
+                  <DateTimePicker
+                    className={classes.field}
+                    id="occasionDate"
+                    name="occasionDate"
+                    inputFormat="DD/MMM/YYYY"
+                    value={values.occasionDate}
+                    labeltext="occasion date:"
+                  />
+                </div>
+                <div className={classes.input}>
+                  <SelectInput
+                    className={classes.field}
+                    id="governorates"
+                    name="governorates"
+                    labeltext="governorates:"
+                    data={data}
+                    type=""
+                  />
+                </div>
+                <div className={classes.input}>
+                  <SelectInput
+                    className={classes.field}
+                    id="city"
+                    name="city"
+                    labeltext="city:"
+                    data={data}
+                    type=""
+                  />
+                </div>
+                <div className={classes.input}>
+                  <MainButton type="submit" className={classes.submit}>
+                    search
+                  </MainButton>
+                </div>
+              </Form>
+            )}
           </Formik>
         </div>
       </StyledContainer>
