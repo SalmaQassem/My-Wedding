@@ -30,8 +30,8 @@ const BookingForm = (props) => {
   };
 
   const submitHandler = async (values, { resetForm }) => {
-    console.log(values.occasionDate.format("MM/DD/YYYY"));
-    alert(JSON.stringify(values, null, 2));
+    //console.log(values.occasionDate.format("MM/DD/YYYY"));
+    //alert(JSON.stringify(values, null, 2));
     //resetForm();
   };
 
