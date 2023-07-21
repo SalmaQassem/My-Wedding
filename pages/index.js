@@ -13,10 +13,19 @@ const HomePage = (props) => {
       </Head>
       <main>
         <Landing />
-        <BookingForm />
+        <BookingForm /*data={props.governorates}*/ />
       </main>
     </>
   );
 };
+/*export async function getStaticProps() {
+  const response = await fetch("http://localhost:3000/api/Booking");
+  const data = await response.json();
+  return {
+    props: {
+      governorates: data,
+    },
+  };
+}*/
 
 export default HomePage;

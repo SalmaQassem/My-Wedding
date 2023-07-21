@@ -25,8 +25,8 @@ const SelectInput = ({ name, ...props }) => {
       <InputLabel>{props.labeltext}</InputLabel>
       <Select {...config}>
         {props.data.map((item) => (
-          <MenuItem key={item} value={item}>
-            {item}
+          <MenuItem key={item.name} value={item.name}>
+            {item.name}
           </MenuItem>
         ))}
       </Select>
