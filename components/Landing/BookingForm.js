@@ -30,7 +30,7 @@ const BookingForm = (props) => {
   };
 
   const submitHandler = async (values, { resetForm }) => {
-    //console.log(values.occasionDate.format("MM/DD/YYYY"));
+    console.log(values.occasionDate.format("MM/DD/YYYY"));
     //alert(JSON.stringify(values, null, 2));
     //resetForm();
   };
@@ -52,7 +52,6 @@ const BookingForm = (props) => {
               <Form className={classes.form}>
                 <div className={classes.input}>
                   <DateTimePicker
-                    className={classes.field}
                     id="occasionDate"
                     name="occasionDate"
                     inputFormat="DD/MMM/YYYY"
@@ -62,7 +61,6 @@ const BookingForm = (props) => {
                 </div>
                 <div className={classes.input}>
                   <SelectInput
-                    className={classes.field}
                     id="governorates"
                     name="governorates"
                     labeltext="governorates:"
@@ -72,7 +70,6 @@ const BookingForm = (props) => {
                 </div>
                 <div className={classes.input}>
                   <SelectInput
-                    className={classes.field}
                     id="city"
                     name="city"
                     labeltext="city:"

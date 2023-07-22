@@ -1,3 +1,5 @@
+import classes from "../../styles/_input.module.scss";
+import styles from "../../styles/_selectInput.module.scss";
 import { MenuItem, InputLabel, Select } from "@mui/material";
 import { useField, useFormikContext } from "formik";
 
@@ -23,7 +25,7 @@ const SelectInput = ({ name, ...props }) => {
   return (
     <>
       <InputLabel>{props.labeltext}</InputLabel>
-      <Select {...config}>
+      <Select {...config} className={`${classes.field} ${styles.box}`}>
         {props.data.map((item) => (
           <MenuItem key={item.name} value={item.name}>
             {item.name}

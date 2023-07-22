@@ -1,4 +1,6 @@
 @use "./global_placeholders" as *;
+@use "./variables/mediaQuery" as *;
+@use "../helpers/mediaQuery_mixin" as *;
 
 html {
     @extend %reset;
@@ -27,6 +29,176 @@ button {
     @extend %reset;
     scroll-behavior: smooth;
     box-sizing: border-box;
+}
+
+.MuiPaper-root {
+
+    ul {
+        li {
+            text-transform: capitalize;
+        }
+
+        @include mediaQuery($XXlargeScreen_min_width) {
+            & {
+                padding: 0.58vh 0 !important;
+
+                li {
+                    padding: 0.58vh 0.8vw !important;
+                    font-size: 0.96vw;
+                }
+            }
+        }
+    }
+}
+
+.MuiDialog-container {
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            .MuiPaper-root {
+                margin: 1.6vw;
+                min-width: 16vw;
+                max-width: 30vw;
+                max-height: calc(100% - 3.2vw);
+                border-radius: 0.2vw;
+
+                .MuiDialogContent-root {
+                    .MuiPickersLayout-root {
+                        .MuiPickersToolbar-root {
+                            max-width: 8vw;
+                            padding: 0.8vw;
+
+                            >span {
+                                font-size: 0.72vw;
+                            }
+
+                            h4 {
+                                font-size: 2.04vw;
+                            }
+                        }
+
+                        .MuiPickersLayout-contentWrapper {
+                            .MuiDateCalendar-root {
+                                width: 16vw;
+                                max-height: 35vh;
+
+                                .MuiPickersCalendarHeader-root {
+                                    min-height: 2.88vh;
+                                    max-height: 2.88vh;
+                                    padding: 0 0.6vw 0 1.2vw;
+                                    margin: 1.54vh 0 0.77vh 0;
+
+                                    .MuiPickersCalendarHeader-labelContainer {
+                                        font-size: 0.96vw;
+
+                                        .MuiPickersFadeTransitionGroup-root {
+                                            .MuiPickersCalendarHeader-label {
+                                                margin-right: 0.3vw;
+                                            }
+
+                                        }
+
+                                        .MuiButtonBase-root {
+                                            padding: 0.25vw;
+                                            font-size: 1.08vw;
+
+                                            svg {
+                                                width: 0.8vw;
+                                                height: 0.8vw;
+                                                font-size: 1.44vw;
+                                            }
+                                        }
+                                    }
+
+                                    .MuiPickersArrowSwitcher-root {
+                                        button {
+                                            padding: 0.4vw;
+
+                                            font-size: 1.44vw;
+
+                                            &:first-of-type {
+                                                margin-right: -0.6vw;
+                                            }
+
+                                            &:nth-of-type(2) {
+                                                margin-left: -0.6vw;
+                                            }
+                                        }
+
+                                        .MuiPickersArrowSwitcher-spacer {
+                                            width: 1.2vw;
+                                        }
+                                    }
+                                }
+
+                                .MuiPickersFadeTransitionGroup-root {
+                                    .MuiYearCalendar-root {
+                                        width: 16vw;
+                                        max-height: 29.2589vh;
+                                        padding: 0 0.2vw;
+
+                                        .MuiPickersYear-root {
+                                            .MuiPickersYear-yearButton {
+                                                width: 3.6vw;
+                                                height: 3.47vh;
+                                                margin: 0.77vh 0;
+                                                font-size: 0.96vw;
+                                                border-radius: 0.9vw;
+                                            }
+                                        }
+                                    }
+
+                                }
+
+                                .MuiDateCalendar-viewTransitionContainer {
+                                    .MuiDayCalendar-header {
+                                        span {
+                                            width: 1.8vw;
+                                            height: 2vw;
+                                            margin: 0 0.1vw;
+                                            font-size: 0.72vw;
+                                        }
+                                    }
+
+                                    .MuiPickersSlideTransition-root {
+                                        min-height: 23vh;
+
+                                        .MuiDayCalendar-monthContainer {
+                                            .MuiDayCalendar-weekContainer {
+                                                margin: 0.193vh 0;
+
+                                                .MuiPickersDay-root {
+                                                    width: 1.8vw;
+                                                    height: 1.8vw;
+                                                    margin: 0 0.1vw;
+                                                    font-size: 0.72vw;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                        .MuiDialogActions-root {
+                            padding: 0.4vw;
+
+                            button {
+                                min-width: 3.2vw;
+                                padding: 0.577vh 0.4vw;
+                                font-size: 0.84vw;
+                                border-radius: 0.2vw;
+
+                                &:not(:first-of-type) {
+                                    margin-left: 0.4vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @font-face {

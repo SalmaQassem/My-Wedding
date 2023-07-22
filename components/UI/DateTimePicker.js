@@ -1,3 +1,5 @@
+import classes from "../../styles/_input.module.scss";
+import styles from "../../styles/_datepicker.module.scss";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { InputLabel } from "@mui/material";
@@ -24,7 +26,7 @@ const DateTimePicker = ({ name, ...props }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <InputLabel>{props.labeltext}</InputLabel>
-      <DatePicker {...config} {...props} />
+      <DatePicker {...config} className={`${classes.field} ${styles.box}`} />
     </LocalizationProvider>
   );
 };

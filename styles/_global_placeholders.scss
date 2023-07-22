@@ -1,4 +1,19 @@
+@use "./variables/colors" as *;
+@use "./variables/mediaQuery" as *;
+@use "../helpers/mediaQuery_mixin" as *;
+
 %reset {
     margin: 0;
     padding: 0;
+}
+
+%font {
+    color: $SecondaryTextColor;
+    text-transform: capitalize;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            font-size: 0.96vw;
+        }
+    }
 }

@@ -19,6 +19,14 @@ const MainButton = styled.button`
   &:hover {
     background-color: #f1b233;
   }
+
+  @media (min-width: 2000px) {
+    & {
+      padding: 2.7vh 2.5vw;
+      font-size: 0.96vw;
+      border-radius: 0.25vw;
+    }
+  }
 `;
 
 export default MainButton;
