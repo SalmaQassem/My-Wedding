@@ -5,13 +5,12 @@ import MainButton from "../UI/MainButton";
 import DateTimePicker from "../UI/DateTimePicker";
 import SelectInput from "../UI/SelectInput";
 import dayjs from "dayjs";
+import { useState, useEffect } from "react";
 
-const data = [
-  { id: "1", name: "cairo" },
-  { id: "2", name: "giza" },
-  { id: "3", name: "alex" },
-];
 const BookingForm = (props) => {
+  const [gov, setGov] = useState("");
+  const [filteredCities, setFilteredCities] = useState([]);
+
   const validateHandler = (values) => {
     const errors = {};
     if (!values.occasionDate) {
@@ -30,10 +29,17 @@ const BookingForm = (props) => {
   };
 
   const submitHandler = async (values, { resetForm }) => {
-    console.log(values.occasionDate.format("MM/DD/YYYY"));
+    //console.log(values.occasionDate.format("MM/DD/YYYY"));
     //alert(JSON.stringify(values, null, 2));
     //resetForm();
   };
+  useEffect(() => {
+    if (gov !== "") {
+      const id = props.gov.find((item) => item.name === gov).gov_id;
+      const cities = props.cities.filter((item) => item.gov_id === id);
+      setFilteredCities(cities);
+    }
+  }, [gov]);
 
   return (
     <div className={classes.booking}>
@@ -45,6 +51,11 @@ const BookingForm = (props) => {
               governorates: "",
               city: "",
             }}
+            innerRef={(formikActions) =>
+              formikActions
+                ? setGov(formikActions.values.governorates)
+                : setGov("")
+            }
             //validate={validateHandler}
             onSubmit={submitHandler}
           >
@@ -64,7 +75,7 @@ const BookingForm = (props) => {
                     id="governorates"
                     name="governorates"
                     labeltext="governorates:"
-                    data={data}
+                    data={props.gov}
                     type=""
                   />
                 </div>
@@ -72,8 +83,9 @@ const BookingForm = (props) => {
                   <SelectInput
                     id="city"
                     name="city"
+                    default="choose city"
                     labeltext="city:"
-                    data={data}
+                    data={filteredCities}
                     type=""
                   />
                 </div>

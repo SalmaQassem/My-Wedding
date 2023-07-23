@@ -26,11 +26,15 @@ const SelectInput = ({ name, ...props }) => {
     <>
       <InputLabel>{props.labeltext}</InputLabel>
       <Select {...config} className={`${classes.field} ${styles.box}`}>
-        {props.data.map((item) => (
-          <MenuItem key={item.name} value={item.name}>
-            {item.name}
-          </MenuItem>
-        ))}
+        {props.data.length === 0 && (
+          <MenuItem value="">{props.default}</MenuItem>
+        )}
+        {props.data.length > 0 &&
+          props.data.map((item) => (
+            <MenuItem key={item.id} value={item.name}>
+              {item.name}
+            </MenuItem>
+          ))}
       </Select>
     </>
   );
