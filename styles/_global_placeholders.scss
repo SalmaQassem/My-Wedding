@@ -17,3 +17,37 @@
         }
     }
 }
+
+%line {
+    content: "";
+    width: 40%;
+    height: 2px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    background-color: $SecondaryColor;
+
+    @include mediaQuery($mobile_min_width) {
+        & {
+            display: block;
+        }
+    }
+
+    @include mediaQuery($smallScreen_min_width) {
+        & {
+            width: 50%;
+        }
+    }
+
+    @include mediaQuery($medScreen_min_width) {
+        & {
+            width: 80%;
+        }
+    }
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            height: 0.193vh;
+        }
+    }
+}

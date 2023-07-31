@@ -37,15 +37,6 @@
         border-radius: 5px;
         outline: none !important;
 
-        /*&:hover {
-            border-color: $SecondaryColor !important;
-        }
-
-        &.focused {
-            border-color: $SecondaryColor !important;
-        }*/
-
-
         @include mediaQuery($XXlargeScreen_min_width) {
             & {
                 padding: 0 0.4vw !important;

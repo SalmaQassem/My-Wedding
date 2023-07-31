@@ -1,0 +1,154 @@
+@use "../global_placeholders" as *;
+@use "../variables/colors" as *;
+
+%font-16 {
+    font-size: 16px;
+    font-family: "NotoSerif-Regular", sans-serif;
+    color: $MainTextColor;
+    text-transform: capitalize;
+}
+
+.filtered_halls {
+    .image {
+        width: 100%;
+        min-height: 390px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background-image: url("../../media/images/landing.jpg");
+        background-size: cover;
+
+        .text {
+            width: fit-content;
+            position: relative;
+            z-index: 12;
+            color: #fff;
+            text-align: center;
+            text-transform: capitalize;
+
+            p {
+                margin-bottom: 24px;
+                padding-left: 15px;
+                position: relative;
+                font-family: "NotoSerif-Bold", sans-serif;
+
+                &::before {
+                    width: 75px;
+                    height: 3px;
+                    left: 0;
+                    @extend %line;
+                }
+            }
+
+            h1 {
+                margin-bottom: 8px;
+                font-family: "Lato-Bold", sans-serif;
+                font-size: 50px;
+            }
+        }
+    }
+
+    .halls {
+        padding: 170px 0 200px 0;
+
+        .header {
+            width: 100%;
+            margin-bottom: 45px;
+        }
+
+        .hallsList {
+            display: flex;
+
+            .box {
+                width: calc(100% / 3);
+                padding: 0 15px;
+                margin-top: 10px;
+
+                &:hover {
+                    .hallImage {
+                        img {
+                            transform: scale(1.15) rotate(2deg);
+                            transition: 0.6s ease-out;
+                        }
+                    }
+                }
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    border: 1px solid rgb(231, 231, 231);
+                    border-radius: 5px;
+                    overflow: hidden;
+
+                    .hallImage {
+                        width: 100%;
+                        height: 350px;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        cursor: pointer;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .description {
+                        padding: 33px 20px;
+
+                        .text {
+
+                            span {
+                                display: block;
+                                margin-bottom: 4px;
+                                @extend %font-16;
+                            }
+
+                            h2 {
+                                margin-bottom: 4px;
+                                font-size: 25px;
+                                font-family: "Lato-Bold", sans-serif;
+                                text-transform: capitalize;
+                            }
+
+                            p {
+                                @extend %font-16;
+                            }
+                        }
+
+                        button {
+                            padding: 8px 20px;
+                            margin: 20px 0 0 auto;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            gap: 10px;
+                            color: $MainColor;
+                            font-family: "NotoSerif-Bold", sans-serif;
+                            font-size: 14px;
+                            background-color: #fff;
+                            border: 1px solid $MainColor;
+                            border-radius: 5px;
+                            white-space: nowrap;
+
+                            svg {
+                                transition: 0.3s;
+                            }
+
+                            &:hover {
+                                border-color: $SecondaryColor;
+                                color: $SecondaryColor;
+
+                                svg {
+                                    transform: translateX(7px);
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+}

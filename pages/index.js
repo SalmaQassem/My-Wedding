@@ -43,6 +43,7 @@ export async function getStaticProps() {
         id: item._id.toString(),
         gov_id: item.gov_id,
         name: item.name,
+        city_id: item.city_id,
       })),
     },
   };

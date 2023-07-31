@@ -17,6 +17,7 @@ ul {
 
 a {
     text-decoration: none;
+    color: #000;
 }
 
 button {
@@ -226,6 +227,13 @@ button {
     font-family: "NotoSerif-Bold";
     src: local("NotoSerifBold"),
         url("../media/fonts/NotoSerif-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSerif-ExtraBold";
+    src: local("NotoSerifExtraBold"),
+        url("../media/fonts/NotoSerif-ExtraBold.ttf") format("truetype");
     font-display: swap;
 }
 

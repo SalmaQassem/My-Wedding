@@ -6,10 +6,12 @@ import DateTimePicker from "../UI/DateTimePicker";
 import SelectInput from "../UI/SelectInput";
 import dayjs from "dayjs";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const BookingForm = (props) => {
   const [gov, setGov] = useState("");
   const [filteredCities, setFilteredCities] = useState([]);
+  const router = useRouter();
 
   const validateHandler = (values) => {
     const errors = {};
@@ -29,13 +31,18 @@ const BookingForm = (props) => {
   };
 
   const submitHandler = async (values, { resetForm }) => {
-    //console.log(values.occasionDate.format("MM/DD/YYYY"));
-    //alert(JSON.stringify(values, null, 2));
     //resetForm();
+    const govId = localStorage.getItem("gov_id");
+    const city_id = props.cities.find(
+      (item) => item.name === values.city && item.gov_id === govId
+    ).city_id;
+    localStorage.setItem("city_id", city_id);
+    router.push("/FilteredHalls");
   };
   useEffect(() => {
     if (gov !== "") {
       const id = props.gov.find((item) => item.name === gov).gov_id;
+      localStorage.setItem("gov_id", id);
       const cities = props.cities.filter((item) => item.gov_id === id);
       setFilteredCities(cities);
     }
