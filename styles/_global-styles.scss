@@ -1,6 +1,10 @@
 @use "./global_placeholders" as *;
 @use "./variables/mediaQuery" as *;
-@use "../helpers/mediaQuery_mixin" as *;
+@use "../helpers/Mixins/mediaQuery_mixin" as *;
+
+%box-sizing {
+    box-sizing: border-box;
+}
 
 html {
     @extend %reset;
@@ -29,7 +33,15 @@ button {
 * {
     @extend %reset;
     scroll-behavior: smooth;
-    box-sizing: border-box;
+    @extend %box-sizing;
+}
+
+::before {
+    @extend %box-sizing;
+}
+
+::after {
+    @extend %box-sizing;
 }
 
 .MuiPaper-root {

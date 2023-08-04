@@ -2,7 +2,7 @@
 @use "../variables/measurements" as *;
 @use "../variables/mediaQuery" as *;
 @use "../global_placeholders" as *;
-@use "../../helpers/mediaQuery_mixin" as *;
+@use "../../helpers/Mixins/mediaQuery_mixin" as *;
 
 .landing {
     height: 100vh;

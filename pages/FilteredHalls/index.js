@@ -7,6 +7,7 @@ import MainHeader from "@/components/UI/MainHeader";
 import { MongoClient } from "mongodb";
 import { MdArrowForwardIos } from "react-icons/md";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const FilteredHalls = (props) => {
   const [cityData, setCityData] = useState({ govId: "", cityId: "" });
@@ -33,9 +34,9 @@ const FilteredHalls = (props) => {
       </div>
       <div className={classes.halls}>
         <StyledContainer>
-          <MainHeader contentvalue="our halls" className={classes.header}>
-            Our halls
-          </MainHeader>
+          <div className={classes.header}>
+            <MainHeader contentvalue="our halls">Our halls</MainHeader>
+          </div>
           <ul className={classes.hallsList}>
             {filteredHalls.length > 0 &&
               filteredHalls.map((item) => {
@@ -52,7 +53,7 @@ const FilteredHalls = (props) => {
                       <div className={classes.description}>
                         <div className={classes.text}>
                           <span>{item.gov_name}</span>
-                          <h2>{item.name}</h2>
+                          <Link href="/">{item.name}</Link>
                           <p>{item.address}</p>
                         </div>
                         <button>

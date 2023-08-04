@@ -6,7 +6,6 @@ const StyledContainer = styled.div`
   padding: 0 15px;
   margin-right: auto;
   margin-left: auto;
-  position: relative;
 
   @media (min-width: 576px) {
     & {
@@ -25,13 +24,12 @@ const StyledContainer = styled.div`
   }
   @media (min-width: 1200px) {
     & {
-      max-width: 1170px;
-      padding: 0 1.125rem;
+      max-width: 1200px;
     }
   }
   @media (min-width: 2000px) {
     & {
-      max-width: 70vw;
+      max-width: 100vw;
       padding: 0 0.75vw;
     }
   }

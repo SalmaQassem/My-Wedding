@@ -1,0 +1,3 @@
+@function setFont($fontSize) {
+    @return $fontSize * 0.06vw
+}

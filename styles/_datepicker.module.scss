@@ -1,5 +1,5 @@
 @use "./variables/mediaQuery" as *;
-@use "../helpers/mediaQuery_mixin" as *;
+@use "../helpers/Mixins/mediaQuery_mixin" as *;
 @use "./global_placeholders" as *;
 
 .box {

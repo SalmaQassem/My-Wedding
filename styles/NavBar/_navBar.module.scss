@@ -1,8 +1,9 @@
 @use "../variables/_colors.scss" as *;
-
-%padding-15 {
-    padding: 0 15px;
-}
+@use "../variables/mediaQuery" as *;
+@use "../global_placeholders" as *;
+@use "../../helpers/Mixins/mediaQuery_mixin" as *;
+@use "../../helpers/Mixins/fontSize_mixin" as *;
+@use "../../helpers/Functions/setFont.scss" as *;
 
 %width {
     max-width: calc(100% / 6);
@@ -14,56 +15,88 @@
 }
 
 .nav {
-    display: flex;
-    align-items: center;
+    transition: 0.3s ease-in;
 
-    .logo {
-        @extend %width;
-        @extend %padding-15;
-        display: inline-block;
-        font-family: "NotoSerif-ExtraBold", sans-serif;
-        font-size: 30px;
-        @extend %text-capitalize;
-    }
-
-    .links {
-        max-width: calc(100% * 4/6);
-        flex: 0 calc(100% * 4/6);
-        @extend %padding-15;
-        display: inline-block;
-
-        ul {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-
-            li {
-                padding: 38px 19px;
-                font-family: "Lato-Regular", sans-serif;
-                @extend %text-capitalize;
-                cursor: pointer;
-
-                a {
-                    transition: 0.6s;
-
-                    &:hover {
-                        color: $MainColor;
-                    }
-
-                }
+    &.scroll {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: #fff;
+        box-shadow: 0 10px 15px rgba(25, 25, 25, 0.1);
+        @include mediaQuery($XXlargeScreen_min_width) {
+            & {
+                box-shadow: 0 0.5vw 0.75vw rgba(25, 25, 25, 0.1);
             }
         }
     }
 
-    .button {
-        @extend %width;
-        @extend %padding-15;
-        display: inline-block;
+    .navContent {
+        display: flex;
+        align-items: center;
 
-        button {
-            width: 100%;
-            padding: 25px 0;
+        .logo {
+            @extend %width;
+            @extend %padding-r-l;
+            display: inline-block;
+            font-family: "NotoSerif-ExtraBold", sans-serif;
+            @include fontSize(30);
+            @extend %text-capitalize;
+        }
+
+        .links {
+            max-width: calc(100% * 4/6);
+            flex: 0 calc(100% * 4/6);
+            @extend %padding-r-l;
+            display: inline-block;
+
+            ul {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                li {
+                    padding: 38px 19px;
+                    font-family: "Lato-Regular", sans-serif;
+                    @include fontSize(16);
+                    @extend %text-capitalize;
+                    cursor: pointer;
+
+                    @include mediaQuery($XXlargeScreen_min_width) {
+                        & {
+                            padding: 3.6575vh 0.95vw;
+                        }
+                    }
+
+                    a {
+                        transition: 0.6s;
+
+                        &:hover {
+                            color: $MainColor;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .button {
+            @extend %width;
+            @extend %padding-r-l;
+            display: inline-block;
+
+            button {
+                width: 100%;
+                padding: 25px 0;
+
+                @include mediaQuery($XXlargeScreen_min_width) {
+                    & {
+                        padding: 2.40625vh 0;
+                    }
+                }
+            }
         }
     }
 }

@@ -1,11 +1,13 @@
 @use "./variables/colors" as *;
 @use "./variables/mediaQuery" as *;
-@use "../helpers/mediaQuery_mixin" as *;
+@use "../helpers/Mixins/mediaQuery_mixin" as *;
 
 %reset {
     margin: 0;
     padding: 0;
 }
+
+//Start Font Placeholders
 
 %font {
     color: $SecondaryTextColor;
@@ -17,6 +19,18 @@
         }
     }
 }
+
+%font-16 {
+    font-size: 16px;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            font-size: 0.96vw;
+        }
+    }
+}
+
+//End Font Placeholders
 
 %line {
     content: "";
@@ -48,6 +62,26 @@
     @include mediaQuery($XXlargeScreen_min_width) {
         & {
             height: 0.193vh;
+        }
+    }
+}
+
+%margin-r-l {
+    margin: 0 -15px;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            margin: 0 -0.75vw;
+        }
+    }
+}
+
+%padding-r-l {
+    padding: 0 15px;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            padding: 0 0.75vw;
         }
     }
 }

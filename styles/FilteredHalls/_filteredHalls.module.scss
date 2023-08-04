@@ -1,11 +1,36 @@
 @use "../global_placeholders" as *;
 @use "../variables/colors" as *;
+@use "../variables/mediaQuery" as *;
+@use "../../helpers/Mixins/mediaQuery_mixin" as *;
+@use "../../helpers/Mixins/fontSize_mixin" as *;
+@use "../../helpers/Functions/setFont.scss" as *;
 
-%font-16 {
-    font-size: 16px;
+%font {
     font-family: "NotoSerif-Regular", sans-serif;
     color: $MainTextColor;
     text-transform: capitalize;
+}
+
+%marginBottom {
+    margin-bottom: 4px;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            margin-bottom: 0.41066vh;
+        }
+    }
+}
+
+%border {
+    border: 1px solid;
+    border-radius: 5px;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            border-width: 0.05vw;
+            border-radius: 0.25vw;
+        }
+    }
 }
 
 .filtered_halls {
@@ -18,8 +43,16 @@
         background-image: url("../../media/images/landing.jpg");
         background-size: cover;
 
+        @include mediaQuery($XXlargeScreen_min_width) {
+            & {
+                min-height: 37.44vh;
+            }
+        }
+
         .text {
             width: fit-content;
+            margin-left: calc(100% / 12);
+            @extend %padding-r-l;
             position: relative;
             z-index: 12;
             color: #fff;
@@ -31,19 +64,40 @@
                 padding-left: 15px;
                 position: relative;
                 font-family: "NotoSerif-Bold", sans-serif;
+                @include fontSize(16);
+
+                @include mediaQuery($XXlargeScreen_min_width) {
+                    & {
+                        margin-bottom: 2.31vh;
+                        padding-left: 0.75vw;
+                    }
+                }
 
                 &::before {
                     width: 75px;
                     height: 3px;
                     left: 0;
                     @extend %line;
+
+                    @include mediaQuery($XXlargeScreen_min_width) {
+                        & {
+                            width: 3.75vw;
+                            height: 0.28875vh;
+                        }
+                    }
                 }
             }
 
             h1 {
                 margin-bottom: 8px;
                 font-family: "Lato-Bold", sans-serif;
-                font-size: 50px;
+                @include fontSize(50);
+
+                @include mediaQuery($XXlargeScreen_min_width) {
+                    & {
+                        margin-bottom: 0.77vh;
+                    }
+                }
             }
         }
     }
@@ -51,34 +105,59 @@
     .halls {
         padding: 170px 0 200px 0;
 
+        @include mediaQuery($XXlargeScreen_min_width) {
+            & {
+                padding: 16.3625vh 0 19.25vh 0;
+            }
+        }
+
         .header {
-            width: 100%;
             margin-bottom: 45px;
+            @extend %margin-r-l;
+
+            @include mediaQuery($XXlargeScreen_min_width) {
+                & {
+                    margin-bottom: 4.62vh;
+                }
+            }
         }
 
         .hallsList {
             display: flex;
+            flex-wrap: wrap;
+            @extend %margin-r-l;
 
             .box {
-                width: calc(100% / 3);
-                padding: 0 15px;
+                max-width: calc(100% / 3);
+                min-height: 1px;
+                @extend %padding-r-l;
                 margin-top: 10px;
+                flex: 0 0 calc(100% / 3);
+                position: relative;
 
-                &:hover {
-                    .hallImage {
-                        img {
-                            transform: scale(1.15) rotate(2deg);
-                            transition: 0.6s ease-out;
-                        }
+                @include mediaQuery($XXlargeScreen_min_width) {
+                    & {
+                        margin-top: 1.0266vh;
                     }
                 }
 
                 .content {
-                    display: flex;
-                    flex-direction: column;
-                    border: 1px solid rgb(231, 231, 231);
-                    border-radius: 5px;
-                    overflow: hidden;
+                    height: 100%;
+
+                    &:hover {
+                        .hallImage {
+                            border-radius: 0;
+
+                            img {
+                                transform: scale(1.15) rotate(2deg);
+                            }
+                        }
+
+                        .description {
+                            border: 1px solid $SecondaryTextColor;
+                            border-top: transparent;
+                        }
+                    }
 
                     .hallImage {
                         width: 100%;
@@ -87,32 +166,65 @@
                         overflow: hidden;
                         cursor: pointer;
 
+                        @include mediaQuery($XXlargeScreen_min_width) {
+                            & {
+                                height: 33.6vh;
+                                border-radius: 0.25vw;
+                            }
+                        }
+
                         img {
                             width: 100%;
                             height: 100%;
+                            transition: 0.6s ease-out;
                         }
                     }
 
                     .description {
-                        padding: 33px 20px;
+                        height: calc(100% - 350px);
+                        padding: 33px 30px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        box-shadow: 1.5px 20px 38px 0px rgba(0, 0, 0, 0.05);
+                        border: 1px solid transparent;
+                        border-radius: 0 0 5px 5px;
+                        transition: 0.3s ease-out;
+
+                        @include mediaQuery($XXlargeScreen_min_width) {
+                            & {
+                                height: calc(100% - 33.6vh);
+                                padding: 3.17625vh 1.5vw;
+                                box-shadow: 0.075vw 1vw 1.9vw 0px rgba(0, 0, 0, 0.05);
+                                border-radius: 0 0 0.25vw 0.25vw;
+                            }
+                        }
 
                         .text {
 
                             span {
                                 display: block;
-                                margin-bottom: 4px;
-                                @extend %font-16;
+                                @extend %marginBottom;
+                                @include fontSize(16);
+                                @extend %font;
                             }
 
-                            h2 {
-                                margin-bottom: 4px;
-                                font-size: 25px;
+                            a {
+                                display: block;
+                                @extend %marginBottom;
+                                @include fontSize(25);
                                 font-family: "Lato-Bold", sans-serif;
                                 text-transform: capitalize;
+                                transition: 0.3s;
+
+                                &:hover {
+                                    color: $MainColor;
+                                }
                             }
 
                             p {
-                                @extend %font-16;
+                                @include fontSize(16);
+                                @extend %font;
                             }
                         }
 
@@ -125,11 +237,21 @@
                             gap: 10px;
                             color: $MainColor;
                             font-family: "NotoSerif-Bold", sans-serif;
-                            font-size: 14px;
+                            @include fontSize(14);
                             background-color: #fff;
                             border: 1px solid $MainColor;
                             border-radius: 5px;
                             white-space: nowrap;
+
+                            @include mediaQuery($XXlargeScreen_min_width) {
+                                & {
+                                    padding: 0.77vh 1vw;
+                                    margin-top: 1.925vh;
+                                    gap: 0.5vw;
+                                    border-width: 0.05vw;
+                                    border-radius: 0.25vw;
+                                }
+                            }
 
                             svg {
                                 transition: 0.3s;
@@ -150,5 +272,4 @@
             }
         }
     }
-
 }

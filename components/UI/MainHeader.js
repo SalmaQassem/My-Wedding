@@ -15,11 +15,22 @@ const MainHeader = styled.h2`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: "NotoSerif-Bold", sans-serif;
+    font-family: "Noto Serif", serif;
     font-size: 130px;
     font-style: italic;
+    letter-spacing: 6px;
     white-space: nowrap;
     color: rgba(17, 46, 65, 0.031);
+  }
+
+  @media (min-width: 2000px) {
+    & {
+      margin-bottom: 0.77vh;
+      font-size: 3vw;
+      &::before {
+        font-size: 7.8vw;
+      }
+    }
   }
 `;
 
