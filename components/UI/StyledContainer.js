@@ -29,7 +29,7 @@ const StyledContainer = styled.div`
   }
   @media (min-width: 2000px) {
     & {
-      max-width: 100vw;
+      max-width: 60vw;
       padding: 0 0.75vw;
     }
   }

@@ -6,6 +6,13 @@ import { useEffect, useState, useCallback } from "react";
 
 const NavBar = () => {
   const [isScroll, setIsScroll] = useState(false);
+  const [isTogglerOpened, setIsTogglerOpened] = useState(false);
+
+  const onClickTogglerHandler = useCallback(() => {
+    setIsTogglerOpened((prevToggler) => {
+      return !prevToggler;
+    });
+  }, []);
   const handleScroll = useCallback(() => {
     const scrollValue = document.documentElement.scrollTop;
     if (scrollValue > 100) {
@@ -19,6 +26,15 @@ const NavBar = () => {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      const width = window.innerWidth;
+      if (width >= 992) {
+        setIsTogglerOpened(false);
+      }
+    });
+  }, []);
+
   return (
     <nav
       className={isScroll ? `${classes.nav} ${classes.scroll}` : classes.nav}
@@ -28,27 +44,47 @@ const NavBar = () => {
           <div className={classes.logo}>
             <Link href="/">Marian</Link>
           </div>
-          <div className={classes.links}>
-            <ul>
-              <li>
-                <Link href="/">home</Link>
-              </li>
-              <li>
-                <Link href="/">about</Link>
-              </li>
-              <li>
-                <Link href="/">service</Link>
-              </li>
-              <li>
-                <Link href="/">blog</Link>
-              </li>
-              <li>
-                <Link href="/">contact</Link>
-              </li>
-            </ul>
+          <div
+            className={
+              isTogglerOpened
+                ? `${classes.toggler} ${classes.open}`
+                : classes.toggler
+            }
+            onClick={onClickTogglerHandler}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-          <div className={classes.button}>
-            <MainButton>book online</MainButton>
+          <div
+            className={
+              isTogglerOpened
+                ? `${classes.collapse} ${classes.opened}`
+                : classes.collapse
+            }
+          >
+            <div className={classes.links}>
+              <ul>
+                <li>
+                  <Link href="/">home</Link>
+                </li>
+                <li>
+                  <Link href="/">about</Link>
+                </li>
+                <li>
+                  <Link href="/">service</Link>
+                </li>
+                <li>
+                  <Link href="/">blog</Link>
+                </li>
+                <li>
+                  <Link href="/">contact</Link>
+                </li>
+              </ul>
+            </div>
+            <div className={classes.button}>
+              <MainButton>book online</MainButton>
+            </div>
           </div>
         </div>
       </StyledContainer>
