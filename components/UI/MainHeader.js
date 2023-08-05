@@ -49,7 +49,7 @@ const MainHeader = styled.h2`
 
   @media (min-width: 2000px) {
     & {
-      margin-bottom: 0.77vh;
+      margin-bottom: 0.8vh;
       font-size: 3vw;
       &::before {
         font-size: 7.8vw;
