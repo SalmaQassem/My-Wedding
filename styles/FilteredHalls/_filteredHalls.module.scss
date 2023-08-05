@@ -12,23 +12,11 @@
 }
 
 %marginBottom {
-    margin-bottom: 4px;
+    margin-bottom: 10px;
 
     @include mediaQuery($XXlargeScreen_min_width) {
         & {
-            margin-bottom: 0.41066vh;
-        }
-    }
-}
-
-%border {
-    border: 1px solid;
-    border-radius: 5px;
-
-    @include mediaQuery($XXlargeScreen_min_width) {
-        & {
-            border-width: 0.05vw;
-            border-radius: 0.25vw;
+            margin-bottom: 1vh;
         }
     }
 }
@@ -45,31 +33,35 @@
 
         @include mediaQuery($XXlargeScreen_min_width) {
             & {
-                min-height: 37.44vh;
+                min-height: 39vh;
             }
         }
 
         .text {
-            width: fit-content;
-            margin-left: calc(100% / 12);
+            width: 100%;
             @extend %padding-r-l;
             position: relative;
             z-index: 12;
             color: #fff;
-            text-align: center;
             text-transform: capitalize;
+
+            @include mediaQuery($medScreen_min_width) {
+                & {
+                    margin-left: calc(100% / 12);
+                }
+            }
 
             p {
                 margin-bottom: 24px;
-                padding-left: 15px;
+                padding-left: 95px;
                 position: relative;
                 font-family: "NotoSerif-Bold", sans-serif;
                 @include fontSize(16);
 
                 @include mediaQuery($XXlargeScreen_min_width) {
                     & {
-                        margin-bottom: 2.31vh;
-                        padding-left: 0.75vw;
+                        margin-bottom: 2.4vh;
+                        padding-left: 4.75vw;
                     }
                 }
 
@@ -82,7 +74,7 @@
                     @include mediaQuery($XXlargeScreen_min_width) {
                         & {
                             width: 3.75vw;
-                            height: 0.28875vh;
+                            height: 0.3vh;
                         }
                     }
                 }
@@ -95,7 +87,7 @@
 
                 @include mediaQuery($XXlargeScreen_min_width) {
                     & {
-                        margin-bottom: 0.77vh;
+                        margin-bottom: 0.8vh;
                     }
                 }
             }
@@ -107,7 +99,7 @@
 
         @include mediaQuery($XXlargeScreen_min_width) {
             & {
-                padding: 16.3625vh 0 19.25vh 0;
+                padding: 17vh 0 20vh 0;
             }
         }
 
@@ -117,7 +109,7 @@
 
             @include mediaQuery($XXlargeScreen_min_width) {
                 & {
-                    margin-bottom: 4.62vh;
+                    margin-bottom: 4.5vh;
                 }
             }
         }
@@ -128,36 +120,33 @@
             @extend %margin-r-l;
 
             .box {
-                max-width: calc(100% / 3);
+                width: 100%;
                 min-height: 1px;
                 @extend %padding-r-l;
-                margin-top: 10px;
-                flex: 0 0 calc(100% / 3);
-                position: relative;
+                margin-bottom: 30px;
+
+                @include mediaQuery($medScreen_min_width) {
+                    & {
+                        max-width: calc(100% / 2);
+                        flex: 0 0 calc(100% / 2);
+                    }
+                }
+
+                @include mediaQuery($XlargeScreen_min_width) {
+                    & {
+                        max-width: calc(100% / 3);
+                        flex: 0 0 calc(100% / 3);
+                    }
+                }
 
                 @include mediaQuery($XXlargeScreen_min_width) {
                     & {
-                        margin-top: 1.0266vh;
+                        margin-bottom: 3vh;
                     }
                 }
 
                 .content {
                     height: 100%;
-
-                    &:hover {
-                        .hallImage {
-                            border-radius: 0;
-
-                            img {
-                                transform: scale(1.15) rotate(2deg);
-                            }
-                        }
-
-                        .description {
-                            border: 1px solid $SecondaryTextColor;
-                            border-top: transparent;
-                        }
-                    }
 
                     .hallImage {
                         width: 100%;
@@ -168,7 +157,7 @@
 
                         @include mediaQuery($XXlargeScreen_min_width) {
                             & {
-                                height: 33.6vh;
+                                height: 35vh;
                                 border-radius: 0.25vw;
                             }
                         }
@@ -193,9 +182,10 @@
 
                         @include mediaQuery($XXlargeScreen_min_width) {
                             & {
-                                height: calc(100% - 33.6vh);
-                                padding: 3.17625vh 1.5vw;
+                                height: calc(100% - 35vh);
+                                padding: 3.3vh 1.5vw;
                                 box-shadow: 0.075vw 1vw 1.9vw 0px rgba(0, 0, 0, 0.05);
+                                border-width: 0.05vw;
                                 border-radius: 0 0 0.25vw 0.25vw;
                             }
                         }
@@ -220,6 +210,12 @@
                                 &:hover {
                                     color: $MainColor;
                                 }
+
+                                @include mediaQuery($smallScreen_max_width) {
+                                    & {
+                                        font-size: 20px;
+                                    }
+                                }
                             }
 
                             p {
@@ -243,16 +239,6 @@
                             border-radius: 5px;
                             white-space: nowrap;
 
-                            @include mediaQuery($XXlargeScreen_min_width) {
-                                & {
-                                    padding: 0.77vh 1vw;
-                                    margin-top: 1.925vh;
-                                    gap: 0.5vw;
-                                    border-width: 0.05vw;
-                                    border-radius: 0.25vw;
-                                }
-                            }
-
                             svg {
                                 transition: 0.3s;
                             }
@@ -265,6 +251,37 @@
                                     transform: translateX(7px);
                                 }
                             }
+
+                            @include mediaQuery($XXlargeScreen_min_width) {
+                                & {
+                                    padding: 0.8vh 1vw;
+                                    margin-top: 2vh;
+                                    gap: 0.5vw;
+                                    border-width: 0.05vw;
+                                    border-radius: 0.25vw;
+
+                                    &:hover {
+                                        svg {
+                                            transform: translateX(0.35vw);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        .hallImage {
+                            border-radius: 0;
+
+                            img {
+                                transform: scale(1.15) rotate(2deg);
+                            }
+                        }
+
+                        .description {
+                            border-color: $SecondaryTextColor;
+                            border-top: transparent;
                         }
                     }
                 }

@@ -5,7 +5,7 @@ const MainHeader = styled.h2`
   position: relative;
   text-align: center;
   font-family: "NotoSerif-Bold", sans-serif;
-  font-size: 50px;
+  font-size: 37px;
   color: #112e41;
   text-transform: capitalize;
 
@@ -16,11 +16,35 @@ const MainHeader = styled.h2`
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "Noto Serif", serif;
-    font-size: 130px;
+    font-size: 55px;
     font-style: italic;
     letter-spacing: 6px;
     white-space: nowrap;
     color: rgba(17, 46, 65, 0.031);
+  }
+
+  @media (min-width: 480px) {
+    & {
+      &::before {
+        font-size: 75px;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    & {
+      font-size: 50px;
+      &::before {
+        font-size: 93px;
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    & {
+      &::before {
+        font-size: 130px;
+      }
+    }
   }
 
   @media (min-width: 2000px) {
