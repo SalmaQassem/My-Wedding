@@ -53,7 +53,9 @@ const FilteredHalls = (props) => {
                       <div className={classes.description}>
                         <div className={classes.text}>
                           <span>{item.gov_name}</span>
-                          <Link href="/">{item.name}</Link>
+                          <Link href={"/FilteredHalls/" + `${item.id}`}>
+                            {item.name}
+                          </Link>
                           <p>{item.address}</p>
                         </div>
                         <button>
