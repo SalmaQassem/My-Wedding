@@ -224,9 +224,9 @@
                             }
                         }
 
-                        button {
+                        .button {
                             padding: 8px 20px;
-                            margin: 20px 0 0 auto;
+                            margin: 25px 0 0 auto;
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
@@ -255,12 +255,13 @@
                             @include mediaQuery($XXlargeScreen_min_width) {
                                 & {
                                     padding: 0.8vh 1vw;
-                                    margin-top: 2vh;
+                                    margin-top: 2.5vh;
                                     gap: 0.5vw;
                                     border-width: 0.05vw;
                                     border-radius: 0.25vw;
 
                                     &:hover {
+
                                         svg {
                                             transform: translateX(0.35vw);
                                         }
@@ -268,6 +269,7 @@
                                 }
                             }
                         }
+
                     }
 
                     &:hover {

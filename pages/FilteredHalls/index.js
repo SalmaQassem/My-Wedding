@@ -44,11 +44,13 @@ const FilteredHalls = (props) => {
                   <li className={classes.box} key={item.id}>
                     <div className={classes.content}>
                       <div className={classes.hallImage}>
-                        <Image
-                          src={background}
-                          priority={true}
-                          alt="hall-image"
-                        />
+                        <Link href={"/FilteredHalls/" + `${item.id}`}>
+                          <Image
+                            src={background}
+                            priority={true}
+                            alt="hall-image"
+                          />
+                        </Link>
                       </div>
                       <div className={classes.description}>
                         <div className={classes.text}>
@@ -58,10 +60,15 @@ const FilteredHalls = (props) => {
                           </Link>
                           <p>{item.address}</p>
                         </div>
-                        <button>
+
+                        <Link
+                          href={"/FilteredHalls/" + `${item.id}`}
+                          className={classes.button}
+                        >
                           <span>See availibility</span>
                           <MdArrowForwardIos />
-                        </button>
+                        </Link>
+                        {/*<span>See availibility</span>*/}
                       </div>
                     </div>
                   </li>
