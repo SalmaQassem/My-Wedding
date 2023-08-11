@@ -1,0 +1,83 @@
+@use "../variables/colors" as *;
+@use "../variables/measurements" as *;
+@use "../variables/mediaQuery" as *;
+@use "../../helpers/Mixins/mediaQuery_mixin" as *;
+
+.booking {
+    position: relative;
+    z-index: 12;
+    transform: translateY(-50%);
+
+    .formContainer {
+        width: 100%;
+
+        .form {
+            padding: 40px 80px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 8px 79px 0px rgba(0, 0, 0, 0.08);
+
+            @include mediaQuery($XXlargeScreen_min_width) {
+                & {
+                    padding: 3.85vh 4vw;
+                    border-radius: 0.5vw;
+                    box-shadow: 0 0.8vw 7.9vw 0 rgba(0, 0, 0, 0.08);
+                }
+            }
+
+            .input {
+                width: 100%;
+                margin-bottom: 30px;
+                display: flex;
+                flex-direction: column;
+
+                @include mediaQuery($medScreen_min_width) {
+                    & {
+                        width: 45%;
+                    }
+                }
+
+                @include mediaQuery($largeScreen_min_width) {
+                    & {
+                        width: 20%;
+                    }
+                }
+
+                @include mediaQuery($XXlargeScreen_min_width) {
+                    & {
+                        margin-bottom: 2.89vh;
+                    }
+                }
+
+
+                >label {
+                    margin-bottom: 20px;
+                    color: $MainTextColor;
+                    font-family: "NotoSerif-Bold", sans-serif;
+                    text-transform: capitalize;
+
+                    @include mediaQuery($XXlargeScreen_min_width) {
+                        & {
+                            margin-bottom: 1.925vh;
+                            font-size: 0.96vw;
+                        }
+                    }
+                }
+            }
+
+            .submit {
+                padding: 25px 50px;
+
+                @include mediaQuery($XXlargeScreen_min_width) {
+                    & {
+                        padding: 2.41vh 2.5vw;
+                    }
+                }
+            }
+        }
+    }
+}

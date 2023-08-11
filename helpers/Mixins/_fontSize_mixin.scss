@@ -1,0 +1,10 @@
+@use "../../styles/variables/mediaQuery" as *;
+@use "../Functions/setFont" as *;
+
+@mixin fontSize($size) {
+    font-size: #{$size}px;
+
+    @media (#{$XXlargeScreen_min_width}) {
+        font-size: setFont($size);
+    }
+}

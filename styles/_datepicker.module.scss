@@ -1,0 +1,19 @@
+@use "./variables/mediaQuery" as *;
+@use "../helpers/Mixins/mediaQuery_mixin" as *;
+@use "./global_placeholders" as *;
+
+.box {
+
+    input {
+        height: 100%;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        @extend %font;
+
+        @include mediaQuery($XXlargeScreen_min_width) {
+            & {
+                padding: 1.59vh 0 1.59vh 0.7vw !important;
+            }
+        }
+    }
+}

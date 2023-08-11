@@ -1,0 +1,278 @@
+@use "./global_placeholders" as *;
+@use "./variables/mediaQuery" as *;
+@use "../helpers/Mixins/mediaQuery_mixin" as *;
+
+%box-sizing {
+    box-sizing: border-box;
+}
+
+html {
+    @extend %reset;
+}
+
+body {
+    @extend %reset;
+    font-family: "OpenSans-Regular", sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+* {
+    @extend %reset;
+    scroll-behavior: smooth;
+    @extend %box-sizing;
+}
+
+::before {
+    @extend %box-sizing;
+}
+
+::after {
+    @extend %box-sizing;
+}
+
+.MuiPaper-root {
+
+    ul {
+        li {
+            text-transform: capitalize;
+        }
+
+        @include mediaQuery($XXlargeScreen_min_width) {
+            & {
+                padding: 0.58vh 0 !important;
+
+                li {
+                    padding: 0.58vh 0.8vw !important;
+                    font-size: 0.96vw;
+                }
+            }
+        }
+    }
+}
+
+.MuiDialog-container {
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            .MuiPaper-root {
+                margin: 1.6vw;
+                min-width: 16vw;
+                max-width: 30vw;
+                max-height: calc(100% - 3.2vw);
+                border-radius: 0.2vw;
+
+                .MuiDialogContent-root {
+                    .MuiPickersLayout-root {
+                        .MuiPickersToolbar-root {
+                            max-width: 8vw;
+                            padding: 0.8vw;
+
+                            >span {
+                                font-size: 0.72vw;
+                            }
+
+                            h4 {
+                                font-size: 2.04vw;
+                            }
+                        }
+
+                        .MuiPickersLayout-contentWrapper {
+                            .MuiDateCalendar-root {
+                                width: 16vw;
+                                max-height: 35vh;
+
+                                .MuiPickersCalendarHeader-root {
+                                    min-height: 2.88vh;
+                                    max-height: 2.88vh;
+                                    padding: 0 0.6vw 0 1.2vw;
+                                    margin: 1.54vh 0 0.77vh 0;
+
+                                    .MuiPickersCalendarHeader-labelContainer {
+                                        font-size: 0.96vw;
+
+                                        .MuiPickersFadeTransitionGroup-root {
+                                            .MuiPickersCalendarHeader-label {
+                                                margin-right: 0.3vw;
+                                            }
+
+                                        }
+
+                                        .MuiButtonBase-root {
+                                            padding: 0.25vw;
+                                            font-size: 1.08vw;
+
+                                            svg {
+                                                width: 0.8vw;
+                                                height: 0.8vw;
+                                                font-size: 1.44vw;
+                                            }
+                                        }
+                                    }
+
+                                    .MuiPickersArrowSwitcher-root {
+                                        button {
+                                            padding: 0.4vw;
+
+                                            font-size: 1.44vw;
+
+                                            &:first-of-type {
+                                                margin-right: -0.6vw;
+                                            }
+
+                                            &:nth-of-type(2) {
+                                                margin-left: -0.6vw;
+                                            }
+                                        }
+
+                                        .MuiPickersArrowSwitcher-spacer {
+                                            width: 1.2vw;
+                                        }
+                                    }
+                                }
+
+                                .MuiPickersFadeTransitionGroup-root {
+                                    .MuiYearCalendar-root {
+                                        width: 16vw;
+                                        max-height: 29.2589vh;
+                                        padding: 0 0.2vw;
+
+                                        .MuiPickersYear-root {
+                                            .MuiPickersYear-yearButton {
+                                                width: 3.6vw;
+                                                height: 3.47vh;
+                                                margin: 0.77vh 0;
+                                                font-size: 0.96vw;
+                                                border-radius: 0.9vw;
+                                            }
+                                        }
+                                    }
+
+                                }
+
+                                .MuiDateCalendar-viewTransitionContainer {
+                                    .MuiDayCalendar-header {
+                                        span {
+                                            width: 1.8vw;
+                                            height: 2vw;
+                                            margin: 0 0.1vw;
+                                            font-size: 0.72vw;
+                                        }
+                                    }
+
+                                    .MuiPickersSlideTransition-root {
+                                        min-height: 23vh;
+
+                                        .MuiDayCalendar-monthContainer {
+                                            .MuiDayCalendar-weekContainer {
+                                                margin: 0.193vh 0;
+
+                                                .MuiPickersDay-root {
+                                                    width: 1.8vw;
+                                                    height: 1.8vw;
+                                                    margin: 0 0.1vw;
+                                                    font-size: 0.72vw;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                        .MuiDialogActions-root {
+                            padding: 0.4vw;
+
+                            button {
+                                min-width: 3.2vw;
+                                padding: 0.577vh 0.4vw;
+                                font-size: 0.84vw;
+                                border-radius: 0.2vw;
+
+                                &:not(:first-of-type) {
+                                    margin-left: 0.4vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@font-face {
+    font-family: "NotoSerif-Regular";
+    src: local("NotoSerifRegular"),
+        url("../media/fonts/NotoSerif-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSerif-Medium";
+    src: local("NotoSerifMedium"),
+        url("../media/fonts/NotoSerif-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSerif-SemiBold";
+    src: local("NotoSerifSemiBold"),
+        url("../media/fonts/NotoSerif-SemiBold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSerif-Bold";
+    src: local("NotoSerifBold"),
+        url("../media/fonts/NotoSerif-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "NotoSerif-ExtraBold";
+    src: local("NotoSerifExtraBold"),
+        url("../media/fonts/NotoSerif-ExtraBold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato-Light";
+    src: local("LatoLight"),
+        url("../media/fonts/Lato-Light.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato-Regular";
+    src: local("LatoRegular"),
+        url("../media/fonts/Lato-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato-Bold";
+    src: local("LatoBold"),
+        url("../media/fonts/Lato-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato-Black";
+    src: local("LatoBlack"),
+        url("../media/fonts/Lato-Black.ttf") format("truetype");
+    font-display: swap;
+}

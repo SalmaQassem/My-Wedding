@@ -1,0 +1,87 @@
+@use "./variables/colors" as *;
+@use "./variables/mediaQuery" as *;
+@use "../helpers/Mixins/mediaQuery_mixin" as *;
+
+%reset {
+    margin: 0;
+    padding: 0;
+}
+
+//Start Font Placeholders
+
+%font {
+    color: $SecondaryTextColor;
+    text-transform: capitalize;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            font-size: 0.96vw;
+        }
+    }
+}
+
+%font-16 {
+    font-size: 16px;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            font-size: 0.96vw;
+        }
+    }
+}
+
+//End Font Placeholders
+
+%line {
+    content: "";
+    width: 40%;
+    height: 2px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    background-color: $SecondaryColor;
+
+    @include mediaQuery($mobile_min_width) {
+        & {
+            display: block;
+        }
+    }
+
+    @include mediaQuery($smallScreen_min_width) {
+        & {
+            width: 50%;
+        }
+    }
+
+    @include mediaQuery($medScreen_min_width) {
+        & {
+            width: 80%;
+        }
+    }
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            height: 0.193vh;
+        }
+    }
+}
+
+%margin-r-l {
+    margin: 0 -15px;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            margin: 0 -0.75vw;
+        }
+    }
+}
+
+%padding-r-l {
+    padding: 0 15px;
+
+    @include mediaQuery($XXlargeScreen_min_width) {
+        & {
+            padding: 0 0.75vw;
+        }
+    }
+}

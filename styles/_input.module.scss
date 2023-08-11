@@ -1,0 +1,48 @@
+@use "./variables/colors" as *;
+@use "./variables/mediaQuery" as *;
+@use "../helpers/Mixins/mediaQuery_mixin" as *;
+@use "./global_placeholders" as *;
+
+.field {
+    @extend %font;
+
+    svg {
+        width: 24px;
+        height: 24px;
+
+        @include mediaQuery($XXlargeScreen_min_width) {
+            & {
+                width: 1.2vw;
+                height: 2.31vh;
+            }
+        }
+    }
+
+    div:first-child {
+        height: 50px;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+
+        @include mediaQuery($XXlargeScreen_min_width) {
+            & {
+                height: 4.8vh;
+                padding: 1.59vh 1.6vw 1.59vh 0.7vw !important;
+            }
+        }
+    }
+
+    fieldset {
+        border: 1px solid $MainColor;
+        border-radius: 5px;
+        outline: none !important;
+
+        @include mediaQuery($XXlargeScreen_min_width) {
+            & {
+                padding: 0 0.4vw !important;
+                border-width: 0.05vw;
+                border-radius: 0.25vw;
+            }
+        }
+    }
+}

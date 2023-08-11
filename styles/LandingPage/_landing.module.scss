@@ -1,0 +1,81 @@
+@use "../variables/colors" as *;
+@use "../variables/measurements" as *;
+@use "../variables/mediaQuery" as *;
+@use "../global_placeholders" as *;
+@use "../../helpers/Mixins/mediaQuery_mixin" as *;
+
+.landing {
+    height: 100vh;
+    position: relative;
+    background-image: url("../../media/images/landing.jpg");
+    background-size: cover;
+
+    .text {
+        width: 100%;
+        padding: $MainPadding;
+        position: absolute;
+        z-index: 12;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        h1 {
+            width: 100%;
+            margin-bottom: 15px;
+            font-family: "NotoSerif-Bold", sans-serif;
+            font-size: 27px;
+            text-transform: uppercase;
+            line-height: 1.7;
+
+            @include mediaQuery($medScreen_min_width) {
+                & {
+                    font-size: 51px;
+                    margin-bottom: 30px;
+                }
+            }
+
+            @include mediaQuery($XXlargeScreen_min_width) {
+                & {
+                    font-size: 3.06vw;
+                    margin-bottom: 2.89vh;
+                }
+            }
+        }
+
+        p {
+            margin-bottom: 60px;
+            display: inline-block;
+            position: relative;
+            font-family: "Lato-Regular", sans-serif;
+            font-size: 27px;
+            text-transform: capitalize;
+
+            &::before {
+                @extend %line;
+                left: -10%;
+                transform: translate(-100%, -50%);
+            }
+
+            &::after {
+                @extend %line;
+                right: -10%;
+                transform: translate(100%, -50%);
+            }
+
+            @include mediaQuery($medScreen_min_width) {
+                & {
+                    font-size: 30px;
+                }
+            }
+
+            @include mediaQuery($XXlargeScreen_min_width) {
+                & {
+                    font-size: 1.8vw;
+                    margin-bottom: 5.775vh;
+                }
+            }
+        }
+    }
+}
